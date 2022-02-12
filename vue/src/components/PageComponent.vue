@@ -4,6 +4,7 @@
       <h1 class="text-3xl font-bold text-gray-900" id="test">
         {{ title }}
       </h1>
+      <slot name="header"></slot>
     </div>
   </header>
   <main>
@@ -11,8 +12,8 @@
       <!-- Replace with your content -->
       <div class="px-4 py-6 sm:px-0">
         <slot></slot>
+        <!-- /End replace -->
       </div>
-      <!-- /End replace -->
     </div>
   </main>
 </template>
