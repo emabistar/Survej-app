@@ -218,7 +218,7 @@
         <!-- Delete Option -->
         <button
           type="button"
-          @click="removeOptions(option)"
+          @click="removeOption(option)"
           class="
             h-6
             w-6
@@ -289,7 +289,7 @@ function addOption() {
   ]);
   dataChange();
 }
-function removeOptions(op){
+function removeOption(op){
   setOptions(getOptions().filter((opt)=>opt !==op))
   dataChange();
 }
@@ -300,8 +300,7 @@ function typeChange() {
   dataChange();
 }
 function dataChange(){
-    const data = JSON.parse(JSON.stringify(model.value));
-  
+const data = JSON.parse(JSON.stringify(model.value));
   if(!shouldHaveOptions()){
     delete data.data.options;
   }

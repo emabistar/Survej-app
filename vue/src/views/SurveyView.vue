@@ -178,7 +178,8 @@ import { computed } from "vue";
 import PageComponent from "../components/PageComponent.vue";
 import QuestionEditor from "../components/editor/QuestionEditor.vue"
 import { ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+const router = useRouter();
 const route = useRoute();
 
 // create an empty
@@ -225,5 +226,14 @@ if (route.params.id)
   model.value = store.state.surveys.find(
     (s) => s.id === parseInt(route.params.id)
   );
+}
+
+function saveSurvey(){
+  store.dispatch('saveSurvey',model.value).then(({data}) =>{
+ router.push({
+   name:"SurveyView",
+   params:{id:data.data.id},
+ });
+  });
 }
 </script>
